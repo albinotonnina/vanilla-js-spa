@@ -1,5 +1,4 @@
-@import '../../styles/variables';
-
+@import '../styles/variables';
 
 $cols: 10;
 
@@ -10,20 +9,20 @@ $cols: 10;
 
   @include breakpoint-small {
     $grid-gutter: $base-unit * 2;
-    margin: 0 ($grid-gutter / -2);
+    margin: $grid-gutter ($grid-gutter / -2);
 
     > * {
       @include col(10);
-      padding: $grid-gutter/2;
+      margin: $grid-gutter/2;
     }
   }
 
   @include breakpoint-medium {
     $grid-gutter: $base-unit * 3;
-    margin: 0 ($grid-gutter / -2);
+    margin: $grid-gutter ($grid-gutter / -2);
 
     > * {
-      padding: $grid-gutter/2;
+      margin: $grid-gutter/2;
     }
 
     > :nth-child(1) {
@@ -41,10 +40,10 @@ $cols: 10;
 
   @include breakpoint-large {
     $grid-gutter: $base-unit * 4;
-    margin: 0 ($grid-gutter / -2);
+    margin: $grid-gutter ($grid-gutter / -2);
 
     > * {
-      padding: $grid-gutter/2;
+      margin: $grid-gutter/2;
     }
 
     > :nth-child(1) {

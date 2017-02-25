@@ -1,4 +1,4 @@
-import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin} from './mixins';
+import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin, phoneNumberFormatterMixin} from './mixins';
 
 export default {
 
@@ -18,7 +18,8 @@ export default {
         return Object.assign(Object.create({data}), {
             currencyFormatter: currencyFormatterMixin,
             titleComposer: propertyTitleComposerMixin,
-            agentAddressComposer: agentAddressComposerMixin
+            agentAddressComposer: agentAddressComposerMixin,
+            phoneNumberFormatter: phoneNumberFormatterMixin
         }, this.methods);
     },
 
@@ -36,7 +37,8 @@ export default {
                 agent: {
                     address: this.agentAddressComposer.compose(this.data.agent_address, this.data.agent_postcode),
                     name: this.data.agent_name,
-                    logoUrl: this.data.agent_logo
+                    logoUrl: this.data.agent_logo,
+                    phone: this.phoneNumberFormatter.format(this.data.agent_phone)
                 },
                 image: {
                     imageUrl: this.data.image_url

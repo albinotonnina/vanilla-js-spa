@@ -4,8 +4,10 @@ const jsdom = require('jsdom');
 global.document = jsdom.jsdom('<body></body>');
 global.window = document.defaultView;
 
-import PropertyItemFactory from './ItemView';
-import PropertyItemModel from '../models/ItemModel';
+let cheerio = require('cheerio');
+
+import ItemViewFactory from './ItemView';
+import ItemModel from '../state/ItemModel';
 
 const data = {
     num_bedrooms: "5",
@@ -21,33 +23,32 @@ const data = {
     image_url: "fake iamge url"
 };
 
-describe('ItemFactory', function () {
+describe('ItemView', function () {
 
-    const Model = PropertyItemModel.Model(data).getData();
-    const PropertyItem = PropertyItemFactory.Property(Model);
+    const Model = ItemModel.Model(data).getData();
+    const ItemView = ItemViewFactory.Create(Model);
+
+    it('should have all the objects in place', function () {
+        expect(ItemView.AgentComponent instanceof Object).to.be.true;
+        expect(ItemView.ImageComponent instanceof Object).to.be.true;
+        expect(ItemView.InfoComponent instanceof Object).to.be.true;
+        expect(ItemView.data instanceof Object).to.be.true;
+    });
 
     it('should output a node', function () {
-        let PropertyItemEl = PropertyItem.render();
-        expect(PropertyItemEl.nodeName).eql('DIV')
+        let ItemViewEl = ItemView.render();
+        expect(ItemViewEl.nodeName).eql('DIV')
     });
 
     it('should render correctly', function () {
-        let PropertyItemEl = PropertyItem.render();
+        const ItemViewEl = ItemView.render();
+        const wrapper = document.createElement('div');
+        wrapper.appendChild(ItemViewEl);
 
+        let $ = cheerio.load(wrapper.innerHTML);
 
-        expect(PropertyItemEl.innerHTML).eql(
-            `<figure class="PropertyImage"><img src="fake iamge url"></figure><div class="PropertyInfo"><div class="PropertyInfo-name">5 bedroom fake property type for sale</div>
-             <div class="PropertyInfo-description">fake-description</div>
-             <div class="PropertyInfo-price">
-                <span itemprop="priceCurrency" content="GBP">£</span>
-                <span itemprop="price" content="1,800,000.00">1,800,000.00</span>
-             </div>
-        </div><div class="PropertyAgent"><figure class="PropertyAgent-logo"><img src="fake agent logo"></figure>
-            <div class="PropertyAgent-name">fake agent name</div>
-            <div class="PropertyAgent-address">fake address, fake postcode</div>
-            </div>`
-        )
-    })
+        expect($('[data-selector="Item"]').children().length).eql(3);
+    });
 
 });
 

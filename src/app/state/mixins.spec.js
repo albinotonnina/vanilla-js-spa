@@ -1,6 +1,6 @@
-import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin} from './mixins';
+import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin, phoneNumberFormatterMixin} from './mixins';
 
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 
 describe('Mixins', function () {
@@ -14,12 +14,17 @@ describe('Mixins', function () {
 
         it('should be formatted in pounds', function () {
             const output = currencyFormatterMixin.format('10000');
-            expect(output).to.be.equal('10,000.00');
+            expect(output).to.be.equal('10,000');
+        });
+
+        it('should be formatted in pounds', function () {
+            const output = currencyFormatterMixin.format('1280000');
+            expect(output).to.be.equal('1,280,000');
         });
 
         it('should return 0 when not a number', function () {
             const output = currencyFormatterMixin.format('not a number');
-            expect(output).to.be.equal('0.00');
+            expect(output).to.be.equal('0');
         });
 
     });
@@ -56,6 +61,25 @@ describe('Mixins', function () {
 
         it('should be composed with an error string in case of missing parameters', function () {
             const output = propertyTitleComposerMixin.compose();
+            expect(output).to.be.equal('invalid data');
+        });
+
+    });
+
+    describe('phoneNumberFormatterMixin', function () {
+
+        const output = phoneNumberFormatterMixin.format('123456');
+
+        it('should return a string', function () {
+            expect(output).to.be.a('string');
+        });
+
+        it('should be composed correctly', function () {
+            expect(output).to.be.equal('T: 123456');
+        });
+
+        it('should be composed with an error string in case of missing parameters', function () {
+            const output = phoneNumberFormatterMixin.format();
             expect(output).to.be.equal('invalid data');
         });
 

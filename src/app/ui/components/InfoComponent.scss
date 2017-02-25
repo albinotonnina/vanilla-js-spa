@@ -1,15 +1,21 @@
+@import '../../styles/variables';
+
 .InfoComponent{
-  color:red;
+  margin:0;
 
   &-name{
-
+    font-size: 1.1rem;
   }
 
   &-description{
-
+    font-size: 0.9rem;
+    color: $lighter-color;
   }
 
   &-price{
+    font-size: 1.4rem;
+    color: $highlight-color;
 
+    margin: $base-unit 0;
   }
 }

@@ -1,5 +1,5 @@
 import {ViewRenderer} from './mixins';
-import styles from './styles/SearchView.scss';
+import styles from './SearchView.scss';
 
 export default {
 
@@ -16,14 +16,14 @@ export default {
             let title;
 
             if (options.noResults) {
-                title = `<h1 class="${styles[this.className + '-title']}">No results found</h1><span class="${styles[this.className + '-subtitle']}">Enter another location and search again</span>`;
+                title = `<h1 id="search-title">No results found</h1><span class="${styles[this.className + '-subtitle']}">Enter another location and search again</span>`;
             } else {
-                title = `<h1 class="${styles[this.className + '-title']}">Search for houses and flats for sale across the UK</h1>`;
+                title = `<h1 id="search-title">Search for houses and flats for sale across the UK</h1>`;
             }
 
             return title + `
                 <div class="${styles[this.className + '-searchBox']}">
-                    <input class="${styles[this.className + '-input']}" type="text" id="search-input" value="N11" />
+                    <input class="${styles[this.className + '-input']}" type="text" id="search-input" />
                     <button class="${styles[this.className + '-btn']}" id="search-btn">Search</button>
                 </div>
                 `;

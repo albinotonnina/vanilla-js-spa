@@ -1,11 +1,11 @@
 import InfoComponent from './components/InfoComponent';
 import AgentComponent from './components/AgentComponent';
 import ImageComponent from './components/ImageComponent';
-import styles from './styles/ItemView.scss';
+import styles from './ItemView.scss';
 
 export default {
 
-    Property(data) {
+    Create(data) {
         return Object.assign(Object.create({
             data
         }), {
@@ -22,6 +22,9 @@ export default {
         render() {
             let el = document.createElement('div');
             el.className = styles[this.className];
+            el.setAttribute('data-selector', 'Item');
+            el.tabIndex = 1;
+
             el.appendChild(this.renderImage());
             el.appendChild(this.renderInfo());
             el.appendChild(this.renderAgent());

@@ -1,15 +1,47 @@
-.AgentComponent{
-  color:red;
+@import '../../styles/variables';
 
-  &-logo{
-    color:red;
+.AgentComponent {
+  font-size: 0.7rem;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    color: $lighter-color;
+    background: $bg-color;
+    padding: $base-unit / 2;
+
+    @include breakpoint-small {
+      > * {
+        margin-bottom: $base-unit;
+      }
+    }
+
+    @include breakpoint-medium {
+      flex-direction: row;
+      align-items: center;
+
+      > * {
+        margin-right: $base-unit*2;
+      }
+    }
+
+    @include breakpoint-large {
+      > * {
+        margin-bottom: $base-unit;
+      }
+    }
   }
 
-  &-name{
-    color:red;
+  &-logo {
+
   }
 
-  &-address{
-    color:red;
+  &-name {
+    color: red;
+  }
+
+  &-address {
+    color: red;
   }
 }

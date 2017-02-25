@@ -1,6 +1,6 @@
 import SearchView from './ui/SearchView';
 import ResultsView from './ui/ResultsView';
-import ItemCollection from './models/ItemCollection';
+import ItemCollection from './state/ItemCollection';
 import './styles/App.scss';
 
 export default {

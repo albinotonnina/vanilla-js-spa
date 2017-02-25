@@ -1,6 +1,6 @@
-import ItemFactory from './ItemView';
+import ItemViewFactory from './ItemView';
 import {ViewRenderer} from './mixins';
-import styles from './styles/ResultsView.scss';
+import styles from './ResultsView.scss';
 
 export default {
 
@@ -22,18 +22,16 @@ export default {
             const el = this.initView(styles[this.className]);
 
             const div = document.createElement('div');
-            div.className = styles[this.className + '-resultCountContainer'];
             div.innerHTML = this.template(models.length);
             el.appendChild(div);
 
             const resultsContainer = document.createElement('div');
-            resultsContainer.className = styles[this.className + '-resultContainer'];
             el.appendChild(resultsContainer);
 
             for (const model of models) {
-                const PropertyItem = ItemFactory.Property(model.getData());
-                const PropertyItemEl = PropertyItem.render();
-                resultsContainer.appendChild(PropertyItemEl);
+                const ItemView = ItemViewFactory.Create(model.getData());
+                const ItemViewEl = ItemView.render();
+                resultsContainer.appendChild(ItemViewEl);
             }
         }
 

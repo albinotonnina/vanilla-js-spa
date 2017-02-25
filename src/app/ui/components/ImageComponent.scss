@@ -1,8 +1,10 @@
-.ImageComponent{
-  margin:0;
+@import '../../styles/variables';
 
-  >img{
+.ImageComponent{
+
+  &-image{
     width: 100%;
     max-width: 100%;
+    border: 1px solid $border-color;
   }
 }

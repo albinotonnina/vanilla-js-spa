@@ -1,0 +1,11 @@
+@import '../styles/variables';
+
+.ResultsPage {
+  max-width: $max-app-width;
+
+  &-result_count {
+    font-size: 0.8rem;
+    color: $lighter-color;
+  }
+
+}

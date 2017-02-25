@@ -7,10 +7,12 @@ export default {
         const className = 'AgentComponent';
 
         const template =
-            `<figure class="${styles[className]}-logo"><img src="${data.logoUrl}" /></figure>
-            <div class="${styles[className]}-name">${data.name}</div>
-            <div class="${styles[className]}-address">${data.address}</div>
-            `;
+            `<div data-selector="AgentComponent" class="${styles[className + '-wrapper']}">
+                <figure><img src="${data.logoUrl}" /></figure>
+                <div>${data.name}</div>
+                <div>${data.address}</div>
+                <div>${data.phone}</div>
+            </div>`;
 
         const el = document.createElement('div');
         el.className = styles[className];
