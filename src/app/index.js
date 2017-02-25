@@ -4,7 +4,7 @@ if (!window.Promise) {
     window.Promise = Promise;
 }
 
-import App from './controllers/App';
+import App from './App';
 
 window.onload = () => {
     App.Create().init();

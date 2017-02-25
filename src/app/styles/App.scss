@@ -1,0 +1,37 @@
+@import 'variables';
+
+html{
+  font-family: arial,helvetica,sans-serif;
+  font-size: 100%;
+
+  @include breakpoint-large {
+    font-size: 120%;
+  }
+}
+
+body{
+  margin:0;
+color:$main-color;
+
+  @include breakpoint-small {
+    padding: $base-unit * 2;
+  }
+
+  @include breakpoint-medium {
+    padding: $base-unit * 3;
+  }
+
+  @include breakpoint-large {
+    padding: $base-unit * 4;
+  }
+}
+
+h1{
+  margin:0;
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+button {
+  cursor: pointer;
+}

@@ -15,28 +15,23 @@ export default {
 
             let title;
 
-            if(options.noResults){
-                title = `<h1 class="${styles[this.className + '-title']}">No results found</h1><h3>Enter another location and search again</h3>`;
-            }else{
+            if (options.noResults) {
+                title = `<h1 class="${styles[this.className + '-title']}">No results found</h1><span class="${styles[this.className + '-subtitle']}">Enter another location and search again</span>`;
+            } else {
                 title = `<h1 class="${styles[this.className + '-title']}">Search for houses and flats for sale across the UK</h1>`;
             }
 
-            return title+`
-                <input type="text" id="search-input"  class="${styles[this.className + '-input']}" value="N11" />
-                <button id="search-btn" class="${styles[this.className + '-btn']}">Search</button>
+            return title + `
+                <div class="${styles[this.className + '-searchBox']}">
+                    <input class="${styles[this.className + '-input']}" type="text" id="search-input" value="N11" />
+                    <button class="${styles[this.className + '-btn']}" id="search-btn">Search</button>
+                </div>
                 `;
         },
 
         render(options){
-
             const el = this.initView(styles[this.className]);
-
-            // const div = document.createElement('div');
-
             el.innerHTML = this.template(options);
-
-            // el.appendChild(div);
-
             document.body.appendChild(el);
         },
 

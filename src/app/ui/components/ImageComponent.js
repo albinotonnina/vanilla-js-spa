@@ -1,4 +1,4 @@
-import styles from '../styles/ImageComponent.scss';
+import styles from './ImageComponent.scss';
 
 export default {
 

@@ -1,16 +1,20 @@
+@import '../../styles/variables';
+
 .ResultsPage {
-  color:red;
+  max-width: $max-app-width;
 
   &-result_count {
 
     color: green;
   }
 
-  &-resultContainer {
-    padding: 8px;
+  &-resultCountContainer {
+
   }
 
-  &-resultCountContainer {
-    padding: 8px;
+  &-resultContainer {
+
   }
+
+
 }

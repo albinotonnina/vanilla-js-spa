@@ -1,4 +1,4 @@
-import styles from '../styles/AgentComponent.scss';
+import styles from './AgentComponent.scss';
 
 export default {
 

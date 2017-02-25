@@ -1,18 +1,40 @@
+@import '../../styles/variables';
+
 .SearchPage {
 
-  color: red;
+  &-searchBox {
+    display: flex;
+    width: 40%;
+    @include breakpoint-small {
+      width: 100%;
+    }
 
-  &-title {
-    color: red;
+    margin-top: $base-unit * 2;
   }
 
   &-btn {
+    flex: 0 0 auto;
+    margin-left: $base-unit;
+
     border-radius: 0;
-    background-color: red;
+    background-color: $btn-bg-color;
+    border: 1px solid $border-color;
   }
 
   &-input {
-    width: 50%;
+    flex: 1 1 auto;
+
+    padding: $base-unit;
+    border: 1px solid $border-color;
+  }
+
+  &-title {
 
   }
+
+  &-subtitle {
+    font-size: 0.8rem;
+    color: $lighter-color;
+  }
+
 }

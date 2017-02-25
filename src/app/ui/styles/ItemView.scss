@@ -1,5 +1,63 @@
-.ItemView {
-  color:red;
+@import '../../styles/variables';
 
+
+$cols: 10;
+
+.ItemView {
+  display: flex;
+  flex-basis: 100%;
+  flex-flow: row wrap;
+
+  @include breakpoint-small {
+    $grid-gutter: $base-unit * 2;
+    margin: 0 ($grid-gutter / -2);
+
+    > * {
+      @include col(10);
+      padding: $grid-gutter/2;
+    }
+  }
+
+  @include breakpoint-medium {
+    $grid-gutter: $base-unit * 3;
+    margin: 0 ($grid-gutter / -2);
+
+    > * {
+      padding: $grid-gutter/2;
+    }
+
+    > :nth-child(1) {
+      @include col(5);
+    }
+
+    > :nth-child(2) {
+      @include col(5);
+    }
+
+    > :nth-child(3) {
+      @include col(10);
+    }
+  }
+
+  @include breakpoint-large {
+    $grid-gutter: $base-unit * 4;
+    margin: 0 ($grid-gutter / -2);
+
+    > * {
+      padding: $grid-gutter/2;
+    }
+
+    > :nth-child(1) {
+      @include col(4);
+    }
+
+    > :nth-child(2) {
+      @include col(4);
+    }
+
+    > :nth-child(3) {
+      @include col(2);
+    }
+  }
 
 }

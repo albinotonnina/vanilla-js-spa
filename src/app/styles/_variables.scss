@@ -1,0 +1,55 @@
+$breaskpoint-small: 0;
+$breaskpoint-medium: '768px';
+$breaskpoint-large: '1200px';
+$base-unit: 8px;
+$max-app-width: 1280px;
+
+@mixin breakpoint-small() {
+  @media only screen and (min-width: $breaskpoint-small) and (max-width: $breaskpoint-medium) {
+    @content;
+  }
+}
+
+@mixin breakpoint-medium() {
+  @media only screen and (min-width: $breaskpoint-medium) and (max-width: $breaskpoint-large) {
+    @content;
+  }
+}
+
+@mixin breakpoint-large() {
+  @media only screen and (min-width: $breaskpoint-large) {
+    @content;
+  }
+}
+
+$main-color: #303030;
+$lighter-color: #61635f;
+$btn-bg-color: #e4e4e4;
+$border-color: #aaaaaa;
+
+
+
+
+
+
+
+$grid-gutter: 32px;
+$cols: 10;
+
+@mixin col(
+  $col,
+  $sibling-offset: $grid-gutter + $grid-gutter,
+  $width: 100% / $cols * $col,
+  $sibling: false,
+  $grid-gutter: $grid-gutter,
+  $fg: 1,
+  $fs: 1
+){
+  @if $sibling == true {
+    flex: $fg $fs calc(#{$width} - #{$sibling-offset});
+    min-width: calc(#{$width} - #{$sibling-offset});
+  } @else {
+    flex: $fg $fs calc(#{$width} - #{$grid-gutter});
+    min-width: calc(#{$width} - #{$grid-gutter});
+  }
+}

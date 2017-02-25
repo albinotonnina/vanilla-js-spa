@@ -1,4 +1,4 @@
-import styles from '../styles/InfoComponent.scss';
+import styles from './InfoComponent.scss';
 
 export default {
 

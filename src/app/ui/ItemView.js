@@ -1,4 +1,4 @@
-import InfoContainer from './components/InfoContainer';
+import InfoComponent from './components/InfoComponent';
 import AgentComponent from './components/AgentComponent';
 import ImageComponent from './components/ImageComponent';
 import styles from './styles/ItemView.scss';
@@ -9,7 +9,7 @@ export default {
         return Object.assign(Object.create({
             data
         }), {
-            InfoContainer,
+            InfoComponent,
             AgentComponent,
             ImageComponent
         }, this.methods);
@@ -29,7 +29,7 @@ export default {
         },
 
         renderInfo() {
-            return this.InfoContainer.render(this.data.info);
+            return this.InfoComponent.render(this.data.info);
         },
 
         renderAgent() {
