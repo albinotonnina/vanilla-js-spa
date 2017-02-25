@@ -1,4 +1,4 @@
-import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin} from './index';
+import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin} from './mixins';
 
 var expect = require('chai').expect;
 
@@ -8,18 +8,18 @@ describe('Mixins', function () {
     describe('currencyFormatter', function () {
 
         it('should return a string', function () {
-            const output = currencyFormatterMixin.format('foo','bar');
+            const output = currencyFormatterMixin.format('bar');
             expect(output).to.be.a('string');
         });
 
         it('should be formatted in pounds', function () {
-            const output = currencyFormatterMixin.format('£','10000');
-            expect(output).to.be.equal('£ 10,000.00');
+            const output = currencyFormatterMixin.format('10000');
+            expect(output).to.be.equal('10,000.00');
         });
 
         it('should return 0 when not a number', function () {
-            const output = currencyFormatterMixin.format('£','not a number');
-            expect(output).to.be.equal('£ 0.00');
+            const output = currencyFormatterMixin.format('not a number');
+            expect(output).to.be.equal('0.00');
         });
 
     });

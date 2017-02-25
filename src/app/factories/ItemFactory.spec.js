@@ -4,7 +4,7 @@ const jsdom = require('jsdom');
 global.document = jsdom.jsdom('<body></body>');
 global.window = document.defaultView;
 
-import PropertyItemFactory from './PropertyItemFactory';
+import PropertyItemFactory from './ItemFactory';
 import PropertyItemModel from '../models/PropertyItemModel';
 
 const data = {

@@ -8,11 +8,10 @@ export const agentAddressComposerMixin = {
 
 export const currencyFormatterMixin = {
 
-    format(currency, amount) {
+    format(amount) {
         const normalizedAmount = parseInt(amount) || 0;
-        return currency + " " + normalizedAmount.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+        return normalizedAmount.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
     }
-
 };
 
 export const propertyTitleComposerMixin = {

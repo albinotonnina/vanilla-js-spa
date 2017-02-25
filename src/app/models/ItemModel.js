@@ -1,4 +1,4 @@
-import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin} from '../mixins/index';
+import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin} from './mixins';
 
 export default {
 
@@ -15,10 +15,7 @@ export default {
         agent_phone:"",
         image_url:""
     }) {
-
-        return Object.assign(Object.create({
-            data
-        }), {
+        return Object.assign(Object.create({data}), {
             currencyFormatter: currencyFormatterMixin,
             titleComposer: propertyTitleComposerMixin,
             agentAddressComposer: agentAddressComposerMixin
@@ -34,10 +31,15 @@ export default {
                 info: {
                     title: this.titleComposer.compose(this.data.num_bedrooms,this.data.property_type),
                     description: this.data.description,
-                    price: this.currencyFormatter.format('£', this.data.price)
+                    price: this.currencyFormatter.format(this.data.price)
                 },
                 agent: {
-                    agentAddress: this.agentAddressComposer.compose(this.data.agent_address, this.data.agent_postcode)
+                    address: this.agentAddressComposer.compose(this.data.agent_address, this.data.agent_postcode),
+                    name: this.data.agent_name,
+                    logoUrl: this.data.agent_logo
+                },
+                image: {
+                    imageUrl: this.data.image_url
                 }
             }
         }
