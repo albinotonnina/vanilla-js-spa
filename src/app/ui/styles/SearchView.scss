@@ -1,5 +1,11 @@
 .SearchPage {
 
+  color: red;
+
+  &-title {
+    color: red;
+  }
+
   &-btn {
     border-radius: 0;
     background-color: red;
@@ -7,5 +13,6 @@
 
   &-input {
     width: 50%;
+
   }
 }

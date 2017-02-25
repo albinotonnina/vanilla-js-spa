@@ -1,6 +1,6 @@
-import ItemCollection from '../models/ItemCollection';
-import ItemFactory from '../factories/ItemFactory';
+import ItemFactory from './ItemView';
 import {ViewRenderer} from './mixins';
+import styles from './styles/ResultsView.scss';
 
 export default {
 
@@ -12,21 +12,28 @@ export default {
 
     methods: {
 
-        initSearch(query = '') {
+        className: 'ResultsPage',
 
-            ItemCollection.Create().search(query).then(models => {
-                this.showResults(models);
-            });
+        template(result_count){
+            return `<span class="${styles[this.className + '-result_count']}" >${result_count} results found</span>`;
         },
 
-        showResults(models){
-            history.pushState({page: 'results'}, "Results", "/results");
-            const el = this.initView('ResultsPage');
+        render(models){
+            const el = this.initView(styles[this.className]);
+
+            const div = document.createElement('div');
+            div.className = styles[this.className + '-resultCountContainer'];
+            div.innerHTML = this.template(models.length);
+            el.appendChild(div);
+
+            const resultsContainer = document.createElement('div');
+            resultsContainer.className = styles[this.className + '-resultContainer'];
+            el.appendChild(resultsContainer);
 
             for (const model of models) {
                 const PropertyItem = ItemFactory.Property(model.getData());
                 const PropertyItemEl = PropertyItem.render();
-                el.appendChild(PropertyItemEl);
+                resultsContainer.appendChild(PropertyItemEl);
             }
         }
 

@@ -1,0 +1,16 @@
+.ResultsPage {
+  color:red;
+
+  &-result_count {
+
+    color: green;
+  }
+
+  &-resultContainer {
+    padding: 8px;
+  }
+
+  &-resultCountContainer {
+    padding: 8px;
+  }
+}
