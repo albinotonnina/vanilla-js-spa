@@ -1,7 +1,8 @@
-import InfoComponent from './components/InfoComponent';
-import AgentComponent from './components/AgentComponent';
-import ImageComponent from './components/ImageComponent';
-import styles from './ItemView.scss';
+/* global document */
+import InfoComponent from "./components/InfoComponent";
+import AgentComponent from "./components/AgentComponent";
+import ImageComponent from "./components/ImageComponent";
+import styles from "./ItemView.scss";
 
 export default {
 
@@ -20,7 +21,7 @@ export default {
         className: 'ItemView',
 
         render() {
-            let el = document.createElement('div');
+            const el = document.createElement('div');
             el.className = styles[this.className];
             el.setAttribute('data-selector', 'Item');
             el.tabIndex = 1;

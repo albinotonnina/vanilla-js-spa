@@ -1,5 +1,5 @@
-import path from 'path';
-import express from 'express';
+import path from "path";
+import express from "express";
 
 export default () => {
     let api = express();
@@ -8,7 +8,7 @@ export default () => {
     api.use('/search/', express.static(path.join(__dirname, '../dist')));
     api.use('/results/', express.static(path.join(__dirname, '../dist')));
 
-    api.get('*', function(req, res){
+    api.get('*', function (req, res) {
         res.status(404).send('Requested page not found')
     });
 

@@ -1,4 +1,5 @@
-import AgentComponent from './AgentComponent';
+/* global global, document */
+import AgentComponent from "./AgentComponent";
 
 const expect = require('chai').expect;
 

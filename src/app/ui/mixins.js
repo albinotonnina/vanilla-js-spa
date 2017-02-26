@@ -1,4 +1,6 @@
-export const ViewRenderer = {
+/* global document */
+
+const ViewRenderer = {
 
     initView(className) {
         while (document.body.firstChild) {
@@ -12,3 +14,5 @@ export const ViewRenderer = {
     }
 
 };
+
+export { ViewRenderer as default };

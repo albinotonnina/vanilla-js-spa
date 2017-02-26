@@ -1,19 +1,24 @@
-import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin, phoneNumberFormatterMixin} from './mixins';
+import {
+  agentAddressComposerMixin,
+  currencyFormatterMixin,
+  propertyTitleComposerMixin,
+  phoneNumberFormatterMixin
+} from './mixins';
 
 export default {
 
     Model(data = {
-        num_bedrooms:"",
-        agent_address:"",
-        property_type:"",
-        description:"",
-        agent_postcode:"",
-        details_url:"",
-        price:"",
-        agent_name:"",
-        agent_logo:"",
-        agent_phone:"",
-        image_url:""
+        num_bedrooms: '',
+        agent_address: '',
+        property_type: '',
+        description: '',
+        agent_postcode: '',
+        details_url: '',
+        price: '',
+        agent_name: '',
+        agent_logo: '',
+        agent_phone: '',
+        image_url: ''
     }) {
         return Object.assign(Object.create({data}), {
             currencyFormatter: currencyFormatterMixin,
@@ -26,11 +31,10 @@ export default {
     methods: {
 
         getData() {
-
             return {
 
                 info: {
-                    title: this.titleComposer.compose(this.data.num_bedrooms,this.data.property_type),
+                    title: this.titleComposer.compose(this.data.num_bedrooms, this.data.property_type),
                     description: this.data.description,
                     price: this.currencyFormatter.format(this.data.price)
                 },
@@ -43,7 +47,7 @@ export default {
                 image: {
                     imageUrl: this.data.image_url
                 }
-            }
+            };
         }
     }
 

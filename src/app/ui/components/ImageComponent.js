@@ -1,9 +1,9 @@
-import styles from './ImageComponent.scss';
+/* global document */
+import styles from "./ImageComponent.scss";
 
 export default {
 
     render(data) {
-
         const className = 'ImageComponent';
 
         const template = `<img class="${styles[className + '-image']}" src="${data.imageUrl}" />`;

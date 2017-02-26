@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 
 const request = require('supertest');
 const express = require('express');
-import api from './server';
+import api from "./server";
 
 describe('Express app', function () {
     let app;

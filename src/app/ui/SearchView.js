@@ -1,5 +1,6 @@
-import {ViewRenderer} from './mixins';
-import styles from './SearchView.scss';
+/* global document */
+import ViewRenderer from "./mixins";
+import styles from "./SearchView.scss";
 
 export default {
 
@@ -12,11 +13,11 @@ export default {
         className: 'SearchPage',
 
         template(options){
-
             let title;
 
             if (options.noResults) {
-                title = `<h1 id="search-title">No results found</h1><span class="${styles[this.className + '-subtitle']}">Enter another location and search again</span>`;
+                title = `<h1 id="search-title">No results found</h1>
+                <span class="${styles[this.className + '-subtitle']}">Enter another location and search again</span>`;
             } else {
                 title = `<h1 id="search-title">Search for houses and flats for sale across the UK</h1>`;
             }
@@ -40,7 +41,7 @@ export default {
         },
 
         onSearch(cb){
-            document.getElementById('search-form').addEventListener('submit', evt => {
+            document.getElementById('search-form').addEventListener('submit', (evt) => {
                 evt.preventDefault();
                 const queryText = document.getElementById('search-input').value;
                 cb(queryText);

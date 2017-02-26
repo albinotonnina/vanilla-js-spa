@@ -1,4 +1,4 @@
-import ImageComponent from './ImageComponent';
+import ImageComponent from "./ImageComponent";
 
 const expect = require('chai').expect;
 

@@ -4,7 +4,7 @@ const jsdom = require('jsdom');
 global.document = jsdom.jsdom('<body></body>');
 global.window = document.defaultView;
 
-import SearchView from './SearchView';
+import SearchView from "./SearchView";
 
 describe('SearchVIew', function () {
 

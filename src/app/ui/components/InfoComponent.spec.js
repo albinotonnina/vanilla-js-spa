@@ -1,4 +1,4 @@
-import InfoComponent from './InfoComponent';
+import InfoComponent from "./InfoComponent";
 
 const expect = require('chai').expect;
 

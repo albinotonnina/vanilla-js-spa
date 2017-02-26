@@ -6,8 +6,8 @@ global.window = document.defaultView;
 
 let cheerio = require('cheerio');
 
-import ItemViewFactory from './ItemView';
-import ItemModel from '../state/ItemModel';
+import ItemViewFactory from "./ItemView";
+import ItemModel from "../state/ItemModel";
 
 const data = {
     num_bedrooms: "5",

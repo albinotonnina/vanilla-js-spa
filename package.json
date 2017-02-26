@@ -1,13 +1,13 @@
 {
-  "name": "zoopla_test",
+  "name": "app_test",
   "version": "0.1.0",
-  "description": "Test for Zoopla's Dev position",
+  "description": "Test for Dev position",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -w src --exec \"npm run start\"",
     "start": "babel-node -- index.js",
     "prestart": "webpack --optimize-minimize && cp src/index.html dist/index.html",
-    "test": "mocha --reporter spec --compilers js:babel-core/register src/**/*.spec.js --require ignore-styles"
+    "test": "mocha --compilers js:babel-core/register src/**/*.spec.js --require ignore-styles"
   },
   "author": "Albino Tonnina",
   "license": "ISC",
@@ -18,6 +18,7 @@
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.3.2",
     "babel-plugin-transform-es2015-for-of": "^6.23.0",
     "babel-polyfill": "^6.23.0",
@@ -26,6 +27,10 @@
     "chai": "^3.5.0",
     "cheerio": "^0.22.0",
     "css-loader": "^0.26.2",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-import": "^2.2.0",
     "ignore-styles": "^5.0.1",
     "jsdom": "^9.11.0",
     "mocha": "^3.2.0",

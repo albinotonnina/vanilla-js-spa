@@ -1,4 +1,5 @@
-import PropertyItemModel from './ItemModel';
+/* global location, fetch */
+import PropertyItemModel from "./ItemModel";
 
 export default {
 
@@ -11,26 +12,23 @@ export default {
         models: [],
 
         search(query){
+            // const full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
 
-            const full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
-
-            return fetch(full + '/api/search/' + query)
-                .then(function (response) {
+            return fetch('/api/search/' + query)
+                .then((response) => {
                     return response.json();
                 })
-                .then(response => {
+                .then((response) => {
                     this.populate(response);
                     return this.models;
                 })
-                .catch(function (ex) {
-                    console.log('parsing failed', ex);
+                .catch((err) => {
+                    throw err;
                 });
-
         },
 
         populate(data){
             if (data.result_count > 0) {
-
                 //TODO This doesn't work on IE, regardless of the babel presets or the polyfills I use. Find why.
                 // for (let listing of data.listing) {
                 //     this.add(listing);
@@ -43,10 +41,8 @@ export default {
         },
 
         add(data){
-
             const models = this.models;
             this.models = [...models, PropertyItemModel.Model(data)];
-
         }
     }
 

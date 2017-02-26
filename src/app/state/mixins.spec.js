@@ -1,4 +1,9 @@
-import {agentAddressComposerMixin, currencyFormatterMixin, propertyTitleComposerMixin, phoneNumberFormatterMixin} from './mixins';
+import {
+  agentAddressComposerMixin,
+  currencyFormatterMixin,
+  propertyTitleComposerMixin,
+  phoneNumberFormatterMixin
+} from "./mixins";
 
 const expect = require('chai').expect;
 
@@ -31,7 +36,7 @@ describe('Mixins', function () {
 
     describe('agentAddressComposerMixin', function () {
 
-        const output = agentAddressComposerMixin.compose('foo','bar');
+        const output = agentAddressComposerMixin.compose('foo', 'bar');
 
         it('should return a string', function () {
             expect(output).to.be.a('string');
@@ -49,7 +54,7 @@ describe('Mixins', function () {
 
     describe('propertyTitleComposerMixin', function () {
 
-        const output = propertyTitleComposerMixin.compose('10','flat');
+        const output = propertyTitleComposerMixin.compose('10', 'flat');
 
         it('should return a string', function () {
             expect(output).to.be.a('string');

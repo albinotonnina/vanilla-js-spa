@@ -1,6 +1,7 @@
-import ItemViewFactory from './ItemView';
-import {ViewRenderer} from './mixins';
-import styles from './ResultsView.scss';
+/* global document */
+import ItemViewFactory from "./ItemView";
+import ViewRenderer from "./mixins";
+import styles from "./ResultsView.scss";
 
 export default {
 
@@ -34,7 +35,7 @@ export default {
                 resultsContainer.appendChild(ItemViewEl);
             });
 
-            //TODO This doesn't work on IE, regardless of the babel presets or the polyfills I use. Find why.
+            /* TODO This doesn't work on IE, regardless of the babel presets or the polyfills I use. Find why. */
             // for (const model of models) {
             //     const ItemView = ItemViewFactory.Create(model.getData());
             //     const ItemViewEl = ItemView.render();

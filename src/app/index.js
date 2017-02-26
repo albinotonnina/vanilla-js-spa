@@ -1,4 +1,5 @@
-import App from './App';
+/* global window */
+import App from "./App";
 
 window.onload = () => {
     App.Create().init();

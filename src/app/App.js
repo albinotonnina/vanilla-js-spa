@@ -1,7 +1,8 @@
-import SearchView from './ui/SearchView';
-import ResultsView from './ui/ResultsView';
-import ItemCollection from './state/ItemCollection';
-import './styles/App.scss';
+/* global history, window */
+import SearchView from "./ui/SearchView";
+import ResultsView from "./ui/ResultsView";
+import ItemCollection from "./state/ItemCollection";
+import "./styles/App.scss";
 
 export default {
 
@@ -11,7 +12,7 @@ export default {
 
     methods: {
 
-        init(){
+        init() {
             this.showSearchView();
 
             window.onpopstate = () => {
@@ -37,15 +38,15 @@ export default {
         },
 
         doSearch(query = ''){
-            ItemCollection.Create().search(query).then(models => {
+            ItemCollection.Create().search(query).then((models) => {
                 if (models.length > 0) {
                     this.showResultsView(models);
                 } else {
                     this.showSearchView({noResults: true});
                 }
-            }).catch(err => {
-                    console.log('error: ' + err);
-                });
+            }).catch((err) => {
+                throw err;
+            });
         },
 
         route(route){
@@ -54,8 +55,4 @@ export default {
 
     }
 
-}
-
-
-
-
+};

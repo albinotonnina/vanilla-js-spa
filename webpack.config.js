@@ -13,7 +13,7 @@ module.exports = {
     },
     devtool: 'source-map',
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
@@ -21,6 +21,12 @@ module.exports = {
                     path.resolve(__dirname, 'src'),
                     path.resolve(__dirname, 'node_modules')
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader",
+                options: {}
             },
             {
                 test: /\.(sass|scss)$/,

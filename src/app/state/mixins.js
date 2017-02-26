@@ -1,7 +1,7 @@
 export const agentAddressComposerMixin = {
 
     compose(agent_address, agent_postcode) {
-        return agent_address && agent_postcode ? `${agent_address}, ${agent_postcode}`: 'invalid data';
+        return agent_address && agent_postcode ? `${agent_address}, ${agent_postcode}` : 'invalid data';
     }
 };
 
@@ -22,7 +22,7 @@ export const propertyTitleComposerMixin = {
 export const phoneNumberFormatterMixin = {
 
     format(agent_phone) {
-        return agent_phone && agent_phone.length > 0 ?`T: ${agent_phone}`: 'invalid data';
+        return agent_phone && agent_phone.length > 0 ? `T: ${agent_phone}` : 'invalid data';
     }
 
 };

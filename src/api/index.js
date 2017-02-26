@@ -1,13 +1,12 @@
-import {version} from '../../package.json';
-import {Router} from 'express';
-import search from './search';
-
+import {Router} from "express";
+import search from "./search";
+import {version} from "../../package.json";
 
 export default () => {
-    let api = Router();
+    const api = Router();
 
-    api.use((req, res, next)=> {
-        res.header("Content-Type",'application/json');
+    api.use((req, res, next) => {
+        res.header("Content-Type", 'application/json');
         next();
     });
 
