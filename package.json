@@ -2,10 +2,10 @@
   "name": "zoopla_test",
   "version": "0.1.0",
   "description": "Test for Zoopla's Dev position",
-  "main": "build/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon -w src --exec \"npm run start\"",
-    "start": "babel-node -- server.js",
+    "start": "babel-node -- index.js",
     "prestart": "webpack --optimize-minimize && cp src/index.html dist/index.html",
     "test": "mocha --reporter spec --compilers js:babel-core/register src/**/*.spec.js --require ignore-styles"
   },

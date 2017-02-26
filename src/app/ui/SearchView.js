@@ -22,10 +22,10 @@ export default {
             }
 
             return title + `
-                <div class="${styles[this.className + '-searchBox']}">
-                    <input class="${styles[this.className + '-input']}" type="text" id="search-input" />
-                    <button class="${styles[this.className + '-btn']}" id="search-btn">Search</button>
-                </div>
+                <form class="${styles[this.className + '-searchForm']}" id="search-form">
+                    <input class="${styles[this.className + '-input']}" type="text" id="search-input"/>
+                    <button class="${styles[this.className + '-btn']}" type="submit" id="search-btn">Search</button>
+                </form>
                 `;
         },
 
@@ -35,8 +35,13 @@ export default {
             document.body.appendChild(el);
         },
 
+        focusInput(){
+            document.getElementById('search-input').focus();
+        },
+
         onSearch(cb){
-            document.getElementById('search-btn').addEventListener('click', () => {
+            document.getElementById('search-form').addEventListener('submit', evt => {
+                evt.preventDefault();
                 const queryText = document.getElementById('search-input').value;
                 cb(queryText);
             }, false);

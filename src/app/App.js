@@ -11,8 +11,6 @@ export default {
 
     methods: {
 
-        searchView: undefined,
-
         init(){
             this.showSearchView();
 
@@ -22,14 +20,20 @@ export default {
         },
 
         showSearchView(options = {noResults: false}){
-            history.pushState(null, null, "/search");
+            this.route('search');
 
             const searchView = SearchView.View();
             searchView.render(options);
+            searchView.focusInput();
 
             searchView.onSearch((query) => {
                 this.doSearch(query);
             });
+        },
+
+        showResultsView(models){
+            this.route('results');
+            ResultsView.View().render(models);
         },
 
         doSearch(query = ''){
@@ -42,11 +46,8 @@ export default {
             });
         },
 
-        showResultsView(models){
-            history.pushState(null, null, "/results");
-
-            const resultsView = ResultsView.View();
-            resultsView.render(models);
+        route(route){
+            history.pushState(null, null, `/${route}/`);
         }
 
     }

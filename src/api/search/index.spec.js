@@ -4,7 +4,7 @@ const request = require('supertest');
 const express = require('express');
 import api from '../index';
 
-describe('Home API', function () {
+describe('Express api', function () {
     let app;
 
     before(function () {

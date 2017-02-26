@@ -2,7 +2,7 @@
 
 .SearchPage {
 
-  &-searchBox {
+  &-searchForm {
     display: flex;
     width: 40%;
     @include breakpoint-small {
