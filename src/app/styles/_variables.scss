@@ -1,3 +1,18 @@
+
+
+
+//COLORS
+
+$main-color: #303030;
+$lighter-color: #61635f;
+$border-color: #aaaaaa;
+$bg-color: #e4e4e4;
+$highlight-color: #f53900;
+
+
+
+//BREAKPOINT MIXINS
+
 $breaskpoint-small: 0;
 $breaskpoint-medium: '768px';
 $breaskpoint-large: '1200px';
@@ -22,18 +37,8 @@ $max-app-width: 1280px;
   }
 }
 
-$main-color: #303030;
-$lighter-color: #61635f;
-$border-color: #aaaaaa;
-$bg-color: #e4e4e4;
-$highlight-color: #f53900;
 
-
-
-
-
-
-
+//GRID MIXIN
 
 $grid-gutter: 32px;
 $cols: 10;
@@ -48,10 +53,12 @@ $cols: 10;
   $fs: 1
 ){
   @if $sibling == true {
-    flex: $fg $fs calc(#{$width} - #{$sibling-offset});
+    flex: $fg $fs 0;
+    flex-basis:calc(#{$width} - #{$sibling-offset});
     min-width: calc(#{$width} - #{$sibling-offset});
   } @else {
-    flex: $fg $fs calc(#{$width} - #{$grid-gutter});
+    flex: $fg $fs 0;
+    flex-basis:calc(#{$width} - #{$grid-gutter});
     min-width: calc(#{$width} - #{$grid-gutter});
   }
 }

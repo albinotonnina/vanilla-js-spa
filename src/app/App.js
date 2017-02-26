@@ -43,7 +43,9 @@ export default {
                 } else {
                     this.showSearchView({noResults: true});
                 }
-            });
+            }).catch(err => {
+                    console.log('error: ' + err);
+                });
         },
 
         route(route){

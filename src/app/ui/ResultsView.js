@@ -28,11 +28,18 @@ export default {
             const resultsContainer = document.createElement('div');
             el.appendChild(resultsContainer);
 
-            for (const model of models) {
+            models.forEach((model) => {
                 const ItemView = ItemViewFactory.Create(model.getData());
                 const ItemViewEl = ItemView.render();
                 resultsContainer.appendChild(ItemViewEl);
-            }
+            });
+
+            //TODO This doesn't work on IE, regardless of the babel presets or the polyfills I use. Find why.
+            // for (const model of models) {
+            //     const ItemView = ItemViewFactory.Create(model.getData());
+            //     const ItemViewEl = ItemView.render();
+            //     resultsContainer.appendChild(ItemViewEl);
+            // }
         }
 
     }
