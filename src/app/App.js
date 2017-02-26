@@ -2,7 +2,7 @@
 import SearchView from "./ui/SearchView";
 import ResultsView from "./ui/ResultsView";
 import ItemCollection from "./state/ItemCollection";
-import "./styles/App.scss";
+import "./App.scss";
 
 export default {
 
