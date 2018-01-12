@@ -1,5 +1,7 @@
 ## Instructions
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/albinotonnina/vanilla-js-spa.svg)](https://greenkeeper.io/)
+
 Install
 
 `npm install`
